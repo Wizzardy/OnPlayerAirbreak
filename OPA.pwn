@@ -1,26 +1,26 @@
 /*
 	OnPlayerAirbreak - Usage // Wizzard2H
 */
-#define FILTERSCRIPT
-#include <a_samp>
-#include <OPA>
-#define COL_RED            "{F81414}"
-public OnFilterScriptInit()
+#define FILTERSCRIPT // Here we defined it as a filterscript
+#include <a_samp> // samp natives
+#include <OPA> // the OnPlayerAirBreak Include.
+#define COL_RED            "{F81414}" // Color Defined.
+public OnFilterScriptInit() // When FilterScripts loads
 {
-        print("OnPlayerAirBreak Loaded!");
-        return 1;
+        print("OnPlayerAirBreak Loaded!"); // Prints to server log
+        return 1; // returns true
 }
-public OnFilterScriptExit()
+public OnFilterScriptExit() // When FilterScripts exits
 {
-        print("OnPlayerAirBreak Unloaded!");
-        return 1;
+        print("OnPlayerAirBreak Unloaded!"); // Prints to server log
+        return 1; // returns true
 }
-public OnPlayerAirbreak(playerid)
+public OnPlayerAirbreak(playerid) // The OPA Callback
 {
-			new strab[250];
-			format(strab, sizeof(strab), ""COL_RED" *** WARNING: Player %s(%i) might be airbraking please spectate him! /spec %i", PlayerName(playerid), playerid, playerid);
-			SendClientMessageToAll(-1,strab);
-		 	return 1;
+			new strab[250]; // string
+			format(strab, sizeof(strab), ""COL_RED" *** WARNING: Player %s(%i) might be airbraking please spectate him! /spec %i", PlayerName(playerid), playerid, playerid); // we format the message before sending it
+			SendClientMessageToAll(-1,strab); // Sends to all online players
+		 	return 1; // returns true
 }
 PlayerName(playerid)
 {
